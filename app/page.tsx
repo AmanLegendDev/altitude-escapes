@@ -1,12 +1,9 @@
-import { Container } from "@/components/ui/Container";
-import { Section } from "@/components/ui/Section";
+import Hero from "@/components/home/Hero/Hero";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <Section>
-      <Container>
-        <h1>Altitude Escapes</h1>
-      </Container>
-    </Section>
+    <>
+      <Hero />
+    </>
   );
 }
