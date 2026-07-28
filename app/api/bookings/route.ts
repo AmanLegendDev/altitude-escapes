@@ -80,7 +80,7 @@ export async function POST(request: Request) {
 
         adults: data.adults,
 
-        children: data.children,
+        children: data.childrenCount,
 
         pickupLocation:
           data.pickupLocation,
