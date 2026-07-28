@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
-
+import { motion, type Variants } from "framer-motion";
 export default function Hero() {
 
-    const fadeUp = {
+const fadeUp: Variants = {
   hidden: {
     opacity: 0,
     y: 40,
@@ -19,7 +18,7 @@ export default function Hero() {
   },
 };
 
-const float = {
+const float: Variants = {
   animate: {
     y: [0, -12, 0],
     transition: {
