@@ -155,67 +155,92 @@ async function nextStep() {
     }
   }
 
-  return (
+ return (
+  <FormProvider {...methods}>
 
-    <FormProvider {...methods}>
+    
+    <section className="relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100 py-20">
 
-    <form
-  onSubmit={methods.handleSubmit(
-    onSubmit
-  )}
->
-    <section className="bg-slate-50 py-20">
-      <div className="mx-auto max-w-5xl px-6">
+      {/* Background Decoration */}
+<div className="mb-10 text-center">
+
+  <span className="rounded-full bg-[#3BAEA0]/10 px-4 py-2 text-sm font-semibold text-[#3BAEA0]">
+    Secure Booking Process
+  </span>
+
+  <h2 className="mt-5 text-4xl font-bold text-slate-900">
+    Reserve Your Himalayan Adventure
+  </h2>
+
+  <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+    Complete your booking in just a few simple steps. Your information is protected with secure encryption.
+  </p>
+
+</div>
+      <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-[#0F4C81]/5 blur-3xl" />
+
+      <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-[#3BAEA0]/10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-6xl px-6">
 
         {/* Progress */}
 
-        <div className="mb-16 flex items-center justify-between">
+        <div className="mb-20 flex justify-center">
 
-          {steps.map(
-            (step, index) => {
-              const stepNumber =
-                index + 1;
+          <div className="mx-auto flex w-fit items-center justify-center">
 
-              const active =
-                currentStep >=
-                stepNumber;
+            {steps.map((step, index) => {
+
+              const stepNumber = index + 1;
+
+              const active = currentStep >= stepNumber;
+
+              const completed = currentStep > stepNumber;
 
               return (
+
+                
+
                 <div
-                  key={step}
-                  className="flex flex-1 items-center"
-                >
+  key={step}
+  className="flex items-center"
+>
+                    
+
                   <div className="flex flex-col items-center">
 
                     <div
                       className={`
+                        relative
                         flex
-                        h-14
-                        w-14
+                        h-16
+                        w-16
                         items-center
                         justify-center
                         rounded-full
-                        border-2
+                        border
                         text-lg
                         font-bold
                         transition-all
-                        duration-300
+                        duration-500
 
                         ${
                           active
-                            ? "border-[#0F4C81] bg-[#0F4C81] text-white"
+                            ? "border-[#0F4C81] bg-gradient-to-br from-[#0F4C81] to-[#3BAEA0] text-white shadow-xl shadow-[#0F4C81]/30"
                             : "border-slate-300 bg-white text-slate-400"
                         }
                       `}
                     >
-                      {stepNumber}
+
+                      {completed ? "✓" : stepNumber}
+
                     </div>
 
-                    <p
+                    <span
                       className={`
-                        mt-3
+                        mt-4
                         text-sm
-                        font-medium
+                        font-semibold
 
                         ${
                           active
@@ -225,110 +250,119 @@ async function nextStep() {
                       `}
                     >
                       {step}
-                    </p>
+                    </span>
+
                   </div>
 
-                  {stepNumber <
-                    steps.length && (
-                    <div
-                      className="
-                        mx-4
-                        h-[3px]
-                        flex-1
-                        rounded-full
-                        bg-slate-200
-                      "
-                    >
+                  {stepNumber !== steps.length && (
+
+                    <div className="mx-5 h-[5px] flex-1 rounded-full bg-slate-200">
+
                       <div
                         className={`
                           h-full
                           rounded-full
-                          bg-[#0F4C81]
+                          bg-gradient-to-r
+                          from-[#0F4C81]
+                          to-[#3BAEA0]
                           transition-all
                           duration-500
 
                           ${
-                            currentStep >
-                            stepNumber
+                            completed
                               ? "w-full"
                               : "w-0"
                           }
                         `}
                       />
+
                     </div>
+
                   )}
+
                 </div>
+
               );
-            }
-          )}
+
+            })}
+
+          </div>
+
         </div>
 
-        {/* Card */}
+        {/* Booking Card */}
 
         <div
           className="
-            rounded-[30px]
-            bg-white
-            p-10
-            shadow-xl
+            rounded-[36px]
+            border
+            border-white/70
+            bg-white/90
+            p-12
+            shadow-[0_30px_70px_rgba(15,76,129,0.12)]
+            backdrop-blur-xl
           "
         >
-          <AnimatePresence
-            mode="wait"
-          >
+
+          <AnimatePresence mode="wait">
+
             <motion.div
               key={currentStep}
               initial={{
                 opacity: 0,
-                x: 40,
+                y: 20,
+                scale: 0.98,
               }}
               animate={{
                 opacity: 1,
-                x: 0,
+                y: 0,
+                scale: 1,
               }}
               exit={{
                 opacity: 0,
-                x: -40,
+                y: -20,
+                scale: 0.98,
               }}
               transition={{
                 duration: 0.35,
+                ease: "easeOut",
               }}
             >
-              {currentStep ===
-                1 && <StepOne />}
 
-              {currentStep ===
-                2 && <StepTwo />}
+              {currentStep === 1 && <StepOne />}
 
-              {currentStep ===
-                3 && (
-                <StepThree />
-              )}
+              {currentStep === 2 && <StepTwo />}
+
+              {currentStep === 3 && <StepThree />}
+
             </motion.div>
+
           </AnimatePresence>
 
           {/* Buttons */}
 
-          <div className="mt-14 flex justify-between">
-
-            <button
+          <div className="mt-16 flex items-center justify-between">
+                        <button
               type="button"
-              onClick={
-                previousStep
-              }
-              disabled={
-                currentStep ===
-                1
-              }
+              onClick={previousStep}
+              disabled={currentStep === 1}
               className="
+                inline-flex
+                items-center
+                gap-2
                 rounded-full
                 border
                 border-slate-300
-                px-7
-                py-3
+                bg-white
+                px-8
+                py-3.5
                 font-semibold
+                text-slate-700
                 transition-all
-
+                duration-300
+                hover:border-[#0F4C81]
+                hover:text-[#0F4C81]
+                hover:shadow-md
                 disabled:cursor-not-allowed
                 disabled:opacity-40
               "
@@ -336,48 +370,74 @@ async function nextStep() {
               ← Back
             </button>
 
-            {currentStep <
-            3 ? (
+            {currentStep < 3 ? (
+
               <button
                 type="button"
-                onClick={
-                  nextStep
-                }
+                onClick={nextStep}
                 className="
+                  inline-flex
+                  items-center
+                  gap-2
                   rounded-full
-                  bg-[#0F4C81]
-                  px-8
-                  py-3
+                  bg-gradient-to-r
+                  from-[#0F4C81]
+                  to-[#3BAEA0]
+                  px-9
+                  py-3.5
                   font-semibold
                   text-white
+                  shadow-lg
                   transition-all
-                  hover:bg-[#0B3A63]
+                  duration-300
+                  hover:scale-[1.03]
+                  hover:shadow-xl
+                  active:scale-[0.98]
                 "
               >
-                Next →
+                Next
+                <span className="text-lg">→</span>
               </button>
+
             ) : (
+
               <button
-  type="submit"
+                type="button"
+                onClick={methods.handleSubmit(onSubmit)}
                 className="
+                  inline-flex
+                  items-center
+                  gap-2
                   rounded-full
-                  bg-[#3BAEA0]
-                  px-8
-                  py-3
+                  bg-gradient-to-r
+                  from-emerald-500
+                  to-[#3BAEA0]
+                  px-10
+                  py-3.5
                   font-semibold
                   text-white
+                  shadow-lg
+                  transition-all
+                  duration-300
+                  hover:scale-[1.03]
+                  hover:shadow-xl
+                  active:scale-[0.98]
                 "
               >
                 Confirm Booking
+                <span>✓</span>
               </button>
+
             )}
+
           </div>
+
         </div>
+
       </div>
+
     </section>
 
-     </form>
-
   </FormProvider>
-  );
+);
 }

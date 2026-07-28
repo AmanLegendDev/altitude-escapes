@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 import Image from "next/image";
 import { motion, type Variants } from "framer-motion";
@@ -97,26 +98,25 @@ variants={fadeUp}
 
   <div className="mt-10 flex flex-wrap gap-4">
 
-    <motion.button
-    whileHover={{
-  scale: 1.05,
-}}
-whileTap={{
-  scale: 0.95,
-}}
-className="rounded-2xl bg-[#0F4C81] px-8 py-4 font-semibold text-white shadow-lg transition"
-
->
-  Explore Tours
-</motion.button>
-
+    <Link href="/booking">
   <motion.button
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="rounded-2xl border border-slate-300 bg-white px-8 py-4 font-semibold text-slate-700 shadow-lg transition hover:border-[#3BAEA0] hover:text-[#0F4C81]"
->
-  View Packages
-</motion.button>
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="rounded-2xl bg-[#0F4C81] px-8 py-4 font-semibold text-white shadow-lg transition"
+  >
+    Book Your Trip
+  </motion.button>
+</Link>
+
+ <Link href="/inquiry">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="rounded-2xl border border-slate-300 bg-white px-8 py-4 font-semibold text-slate-700 shadow-lg transition hover:border-[#3BAEA0] hover:text-[#0F4C81]"
+  >
+    Plan My Journey
+  </motion.button>
+</Link>
 
 
 

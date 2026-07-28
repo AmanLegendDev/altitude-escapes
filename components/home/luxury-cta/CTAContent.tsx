@@ -27,59 +27,72 @@ export default function CTAContent({
       }}
       transition={{
         duration: 0.8,
+        ease: "easeOut",
       }}
-      className="max-w-3xl"
+      className="relative z-10 max-w-3xl"
     >
-      {/* Badge */}
+      {/* Premium Badge */}
 
-      <div
+      <motion.div
+        whileHover={{
+          scale: 1.04,
+        }}
         className="
           inline-flex
           items-center
-          gap-2
+          gap-3
           rounded-full
           border
           border-white/20
           bg-white/10
-          px-5
-          py-2.5
-          text-sm
-          font-semibold
-          uppercase
-          tracking-[0.2em]
-          text-white
-          backdrop-blur-md
+          px-6
+          py-3
+          backdrop-blur-xl
+          shadow-[0_10px_35px_rgba(255,255,255,0.08)]
         "
       >
-        <Sparkles
-          size={16}
-          className="text-[#3BAEA0]"
-        />
+        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3BAEA0]/20">
+          <Sparkles
+            size={16}
+            className="text-[#3BAEA0]"
+          />
+        </div>
 
-        {badge}
-      </div>
+        <span
+          className="
+            text-xs
+            font-semibold
+            uppercase
+            tracking-[0.28em]
+            text-white/90
+          "
+        >
+          {badge}
+        </span>
+      </motion.div>
 
       {/* Heading */}
 
       <h2
         className="
           mt-8
+          max-w-2xl
           text-4xl
-          font-bold
-          leading-tight
+          font-black
+          leading-[1.05]
           tracking-tight
           text-white
 
           md:text-5xl
 
-          lg:text-6xl
+          xl:text-6xl
         "
       >
         {title}
 
         <span
           className="
-            mt-2
+            mt-3
             block
             bg-gradient-to-r
             from-[#3BAEA0]
@@ -108,6 +121,30 @@ export default function CTAContent({
       >
         {description}
       </p>
+
+      {/* Trust Highlights */}
+
+      <div className="mt-10 flex flex-wrap gap-5">
+
+        <div className="rounded-full bg-white/10 px-5 py-3 backdrop-blur-md">
+          <span className="text-sm font-medium text-white">
+            ✔ Instant Confirmation
+          </span>
+        </div>
+
+        <div className="rounded-full bg-white/10 px-5 py-3 backdrop-blur-md">
+          <span className="text-sm font-medium text-white">
+            ✔ Secure Booking
+          </span>
+        </div>
+
+        <div className="rounded-full bg-white/10 px-5 py-3 backdrop-blur-md">
+          <span className="text-sm font-medium text-white">
+            ✔ Local Travel Experts
+          </span>
+        </div>
+
+      </div>
     </motion.div>
   );
 }
