@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 
-import { connectToDatabase } from "@/lib/db";
+import connectDB from "@/lib/db";
 import User from "@/models/User";
 import {
   createToken,
@@ -27,7 +27,7 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    await connectToDatabase();
+    await connectDB();
 
     const user = await User.findOne({
       email,
