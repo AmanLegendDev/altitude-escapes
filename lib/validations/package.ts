@@ -31,6 +31,12 @@ export const packageSchema = z.object({
 
   discountedPrice: z.number(),
 
+  childPolicy: z.object({
+  complimentaryBelow: z.number(),
+  halfPriceBelow: z.number(),
+  halfPricePercentage: z.number(),
+}),
+
   highlights: z.array(z.string()),
 
   included: z.array(z.string()),

@@ -6,6 +6,39 @@ import Package from "@/models/package.model";
 
 import { packageSchema } from "@/lib/validations/package";
 
+export async function GET() {
+  try {
+    await connectDB();
+
+    const packages = await Package.find({
+      status: "active",
+    })
+      .select(
+  "name duration heroImage originalPrice discountedPrice childPolicy"
+)
+      .sort({
+        createdAt: -1,
+      });
+
+    return NextResponse.json({
+      success: true,
+      packages,
+    });
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Server Error",
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+}
+
 export async function POST(req: Request) {
   try {
     await connectDB();
@@ -36,8 +69,7 @@ export async function POST(req: Request) {
       return NextResponse.json(
         {
           success: false,
-          message:
-            "Package already exists.",
+          message: "Package already exists.",
         },
         {
           status: 409,

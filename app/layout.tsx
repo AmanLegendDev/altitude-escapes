@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
+import Navbaar from "@/components/layout/Navbar";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +66,10 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} ${poppins.variable}`}
     >
-      <body>{children}</body>
+    
+      <body>
+        <Navbaar/>
+        {children}   <Toaster richColors /> </body>
     </html>
   );
 }

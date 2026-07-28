@@ -58,6 +58,12 @@ interface PackageFormData {
 
   discountedPrice: number;
 
+  childPolicy: {
+  complimentaryBelow: number;
+  halfPriceBelow: number;
+  halfPricePercentage: number;
+};
+
   highlights: string[];
 
   included: string[];
@@ -100,6 +106,12 @@ const initialForm: PackageFormData = {
   originalPrice: 0,
 
   discountedPrice: 0,
+
+  childPolicy: {
+  complimentaryBelow: 5,
+  halfPriceBelow: 10,
+  halfPricePercentage: 50,
+},
 
   highlights: [""],
 
@@ -865,6 +877,73 @@ export default function NewPackagePage() {
                 className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:border-sky-500"
               />
             </div>
+
+            <div>
+  <label className="mb-2 block text-sm font-medium">
+    Complimentary Below Age
+  </label>
+
+  <input
+    type="number"
+    min={0}
+    value={form.childPolicy.complimentaryBelow}
+    onChange={(e) =>
+      setForm((prev) => ({
+        ...prev,
+        childPolicy: {
+          ...prev.childPolicy,
+          complimentaryBelow: Number(e.target.value),
+        },
+      }))
+    }
+    className="w-full rounded-xl border border-slate-300 px-4 py-3"
+  />
+</div>
+
+<div>
+  <label className="mb-2 block text-sm font-medium">
+    Half Price Below Age
+  </label>
+
+  <input
+    type="number"
+    min={0}
+    value={form.childPolicy.halfPriceBelow}
+    onChange={(e) =>
+      setForm((prev) => ({
+        ...prev,
+        childPolicy: {
+          ...prev.childPolicy,
+          halfPriceBelow: Number(e.target.value),
+        },
+      }))
+    }
+    className="w-full rounded-xl border border-slate-300 px-4 py-3"
+  />
+</div>
+
+<div>
+  <label className="mb-2 block text-sm font-medium">
+    Half Price Percentage
+  </label>
+
+  <input
+    type="number"
+    min={0}
+    max={100}
+    value={form.childPolicy.halfPricePercentage}
+    onChange={(e) =>
+      setForm((prev) => ({
+        ...prev,
+        childPolicy: {
+          ...prev.childPolicy,
+          halfPricePercentage: Number(e.target.value),
+        },
+      }))
+    }
+    className="w-full rounded-xl border border-slate-300 px-4 py-3"
+  />
+</div>
           </div>
         </div>
 

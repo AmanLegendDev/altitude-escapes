@@ -42,13 +42,19 @@ export interface IPackage
 
   difficulty: Difficulty;
 
-  groupSize: string;
+ groupSize: string;
 
-  originalPrice: number;
+originalPrice: number;
 
-  discountedPrice: number;
+discountedPrice: number;
 
-  highlights: string[];
+childPolicy: {
+  complimentaryBelow: number;
+  halfPriceBelow: number;
+  halfPricePercentage: number;
+};
+
+highlights: string[];
 
   included: string[];
 
@@ -162,15 +168,50 @@ const PackageSchema =
         default: "",
       },
 
-      originalPrice: {
-        type: Number,
-        default: 0,
-      },
+   
 
-      discountedPrice: {
-        type: Number,
-        default: 0,
-      },
+
+
+    originalPrice: {
+  type: Number,
+  required: true,
+  default: 0,
+},
+
+discountedPrice: {
+  type: Number,
+  required: true,
+  default: 0,
+},
+
+childPolicy: {
+  type: {
+    complimentaryBelow: {
+      type: Number,
+      default: 5,
+    },
+
+    halfPriceBelow: {
+      type: Number,
+      default: 10,
+    },
+
+    halfPricePercentage: {
+      type: Number,
+      default: 50,
+    },
+  },
+
+  default: {
+    complimentaryBelow: 5,
+    halfPriceBelow: 10,
+    halfPricePercentage: 50,
+  },
+
+  required: true,
+},
+
+      
 
       highlights: {
         type: [String],

@@ -23,6 +23,20 @@ export default function AddDestinationPage() {
  const [heroImage, setHeroImage] = useState<string>("");
 const [gallery, setGallery] = useState<string[]>([]);
 
+
+const [startingPrice, setStartingPrice] = useState(0);
+
+const [duration, setDuration] = useState("");
+
+const [rating, setRating] = useState(5);
+
+const [reviewCount, setReviewCount] = useState(0);
+
+const [featured, setFeatured] = useState(false);
+
+const [featuredOrder, setFeaturedOrder] = useState(0);
+
+
   const [seoTitle, setSeoTitle] = useState("");
   const [seoDescription, setSeoDescription] = useState("");
 
@@ -96,6 +110,13 @@ async function handleSubmit(
         altitude,
         heroImage,
         gallery,
+
+        startingPrice,
+duration,
+rating,
+reviewCount,
+featured,
+featuredOrder,
 
         seoTitle,
         seoDescription,
@@ -398,6 +419,133 @@ onChange={setGallery}
   </div>
 
 </section>
+
+<section>
+
+  <h3 className="mb-5 text-lg font-semibold">
+    Homepage Settings
+  </h3>
+
+  <div className="grid gap-6 md:grid-cols-2">
+
+    <div>
+
+      <label className="mb-2 block text-sm font-medium">
+        Starting Price (₹)
+      </label>
+
+      <input
+        type="number"
+        value={startingPrice}
+        onChange={(e) =>
+          setStartingPrice(Number(e.target.value))
+        }
+        className="w-full rounded-xl border border-slate-300 px-4 py-3"
+      />
+
+    </div>
+
+    <div>
+
+      <label className="mb-2 block text-sm font-medium">
+        Duration
+      </label>
+
+      <input
+        type="text"
+        placeholder="5 Days / 4 Nights"
+        value={duration}
+        onChange={(e) =>
+          setDuration(e.target.value)
+        }
+        className="w-full rounded-xl border border-slate-300 px-4 py-3"
+      />
+
+    </div>
+
+    <div>
+
+      <label className="mb-2 block text-sm font-medium">
+        Rating
+      </label>
+
+      <input
+        type="number"
+        min={0}
+        max={5}
+        step={0.1}
+        value={rating}
+        onChange={(e) =>
+          setRating(Number(e.target.value))
+        }
+        className="w-full rounded-xl border border-slate-300 px-4 py-3"
+      />
+
+    </div>
+
+    <div>
+
+      <label className="mb-2 block text-sm font-medium">
+        Review Count
+      </label>
+
+      <input
+        type="number"
+        value={reviewCount}
+        onChange={(e) =>
+          setReviewCount(Number(e.target.value))
+        }
+        className="w-full rounded-xl border border-slate-300 px-4 py-3"
+      />
+
+    </div>
+
+  </div>
+
+  <div className="mt-6 grid gap-6 md:grid-cols-2">
+
+    <div>
+
+      <label className="mb-2 block text-sm font-medium">
+        Featured Order
+      </label>
+
+      <input
+        type="number"
+        value={featuredOrder}
+        onChange={(e) =>
+          setFeaturedOrder(Number(e.target.value))
+        }
+        className="w-full rounded-xl border border-slate-300 px-4 py-3"
+      />
+
+    </div>
+
+    <div className="flex items-end">
+
+      <label className="flex items-center gap-3">
+
+        <input
+          type="checkbox"
+          checked={featured}
+          onChange={(e) =>
+            setFeatured(e.target.checked)
+          }
+        />
+
+        <span className="font-medium">
+          Show On Homepage
+        </span>
+
+      </label>
+
+    </div>
+
+  </div>
+
+</section>
+
+
 <section>
 
   <h3 className="mb-5 text-lg font-semibold">

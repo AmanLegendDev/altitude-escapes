@@ -1,0 +1,31 @@
+import GalleryCard from "./GalleryCard";
+
+import type {
+  GalleryGridProps,
+} from "./types";
+
+export default function GalleryGrid({
+  images,
+}: GalleryGridProps) {
+  return (
+    <div
+      className="
+        grid
+        auto-rows-[250px]
+        gap-6
+
+        md:grid-cols-2
+
+        xl:grid-cols-3
+      "
+    >
+      {images.map((image, index) => (
+        <GalleryCard
+          key={image._id}
+          image={image}
+          index={index}
+        />
+      ))}
+    </div>
+  );
+}

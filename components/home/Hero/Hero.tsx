@@ -32,7 +32,7 @@ const float: Variants = {
     <motion.section
   initial="hidden"
   animate="visible"
-  className="relative overflow-hidden bg-[#F8FAFC]"
+  className="relative overflow-hidden bg-[#F8FAFC] pt-20 lg:pt-16"
 >
 
       {/* Background Glow */}
@@ -172,7 +172,10 @@ className="rounded-2xl bg-[#0F4C81] px-8 py-4 font-semibold text-white shadow-lg
       width={900}
       height={1000}
       priority
-      className="h-[430px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[520px] lg:h-[690px] lg:w-[560px]"
+      className="h-[430px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[520px] lg:h-[690px] lg:w-[560px] rounded-tl-[42px]
+rounded-tr-[42px]
+rounded-bl-[42px]
+rounded-br-[90px]"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-[#0F4C81]/25 via-transparent to-transparent" /> 
 

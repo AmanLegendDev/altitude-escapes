@@ -4,8 +4,7 @@ import mongoose, {
   Schema,
 } from "mongoose";
 
-export interface IDestination
-  extends Document {
+export interface IDestination extends Document {
   name: string;
 
   slug: string;
@@ -27,6 +26,18 @@ export interface IDestination
   heroImage: string;
 
   gallery: string[];
+
+  startingPrice: number;
+
+  duration: string;
+
+  rating: number;
+
+  reviewCount: number;
+
+  featured: boolean;
+
+  featuredOrder: number;
 
   seoTitle: string;
 
@@ -53,6 +64,7 @@ const DestinationSchema =
         required: true,
         unique: true,
         lowercase: true,
+        trim: true,
       },
 
       shortDescription: {
@@ -68,16 +80,19 @@ const DestinationSchema =
       country: {
         type: String,
         required: true,
+        trim: true,
       },
 
       state: {
         type: String,
         default: "",
+        trim: true,
       },
 
       city: {
         type: String,
         default: "",
+        trim: true,
       },
 
       bestTime: {
@@ -100,6 +115,42 @@ const DestinationSchema =
         default: [],
       },
 
+      // Homepage
+
+      startingPrice: {
+        type: Number,
+        default: 0,
+        min: 0,
+      },
+
+      duration: {
+        type: String,
+        default: "",
+      },
+
+      rating: {
+        type: Number,
+        default: 5,
+        min: 0,
+        max: 5,
+      },
+
+      reviewCount: {
+        type: Number,
+        default: 0,
+        min: 0,
+      },
+
+      featured: {
+        type: Boolean,
+        default: false,
+      },
+
+      featuredOrder: {
+        type: Number,
+        default: 0,
+      },
+
       seoTitle: {
         type: String,
         default: "",
@@ -112,10 +163,7 @@ const DestinationSchema =
 
       status: {
         type: String,
-        enum: [
-          "active",
-          "inactive",
-        ],
+        enum: ["active", "inactive"],
         default: "active",
       },
     },
