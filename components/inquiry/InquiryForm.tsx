@@ -8,7 +8,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { CalendarDays, Loader2, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 
-import { inquirySchema, type InquiryInput } from "@/lib/validations/inquiry";
+import { z } from "zod";
+import { inquirySchema } from "@/lib/validations/inquiry";
 
 interface DestinationOption {
   _id: string;
@@ -25,28 +26,28 @@ export default function InquiryForm() {
   const [loadingDestinations, setLoadingDestinations] =
     useState(true);
 
-  const {
-    register,
-    handleSubmit,
-    formState: {
-      errors,
-      isSubmitting,
-    },
-  } = useForm<InquiryInput>({
-    resolver: zodResolver(inquirySchema),
-
-    defaultValues: {
-      fullName: "",
-      phone: "",
-      email: "",
-      destination: "",
-      travelDate: "",
-      travelers: 2,
-      budget: "",
-      pickupLocation: "",
-      message: "",
-    },
-  });
+ const {
+  register,
+  handleSubmit,
+  formState: { errors, isSubmitting },
+} = useForm<
+  z.input<typeof inquirySchema>,
+  any,
+  z.output<typeof inquirySchema>
+>({
+  resolver: zodResolver(inquirySchema),
+  defaultValues: {
+    fullName: "",
+    phone: "",
+    email: "",
+    destination: "",
+    travelDate: "",
+    travelers: 2,
+    budget: "",
+    pickupLocation: "",
+    message: "",
+  },
+});
 
   useEffect(() => {
     async function fetchDestinations() {
@@ -68,7 +69,7 @@ export default function InquiryForm() {
     fetchDestinations();
   }, []);
 
-  async function onSubmit(values: InquiryInput) {
+ async function onSubmit(values: z.output<typeof inquirySchema>)  {
     try {
       const response = await fetch(
         "/api/inquiries",

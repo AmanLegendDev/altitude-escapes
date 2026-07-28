@@ -4,7 +4,7 @@ import InquiryBenefits from "./InquiryBenefits";
 import InquiryFAQ from "./InquiryFAQ";
 import InquiryForm from "./InquiryForm";
 import InquiryHero from "./InquiryHero";
-
+import type { FAQItem } from "./types";
 
 
 

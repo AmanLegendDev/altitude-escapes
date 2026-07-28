@@ -1,5 +1,4 @@
-import { LucideIcon } from "lucide-react";
-
+import type { IconType } from "react-icons";
 export interface FooterLink {
   label: string;
   href: string;
@@ -13,7 +12,7 @@ export interface FooterSection {
 export interface SocialLink {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: IconType;
 }
 
 export interface FooterBrandProps {

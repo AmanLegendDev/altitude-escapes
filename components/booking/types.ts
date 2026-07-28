@@ -9,15 +9,13 @@ export interface BookingFormData {
 
   adults: number;
 
-  
-
   childrenCount: number;
 
-  childrenAges: number[];
+  childrenAges?: number[];
 
   pickupLocation: string;
 
-  specialRequest: string;
+  specialRequest?: string;
 
   totalPrice: number;
 }
