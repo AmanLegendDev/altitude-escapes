@@ -2,6 +2,10 @@ import connectDB from "@/lib/db";
 
 import Package from "@/models/package.model";
 
+// Register models for populate()
+import "@/models/destination.model";
+import "@/models/category.model";
+
 export async function getAllPackages() {
   await connectDB();
 

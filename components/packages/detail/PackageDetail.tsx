@@ -81,9 +81,9 @@ export default function PackageDetail({
 
       <PackageFAQ />
 
-      {/* <RelatedPackages
+      <RelatedPackages
         packages={relatedPackages}
-      /> */}
+      />
 
       <PackageCTA
         packageName={pkg.name}
