@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Package from "@/models/package.model";
 import Testimonial from "@/models/testimonial.model";
 import Hero from "@/components/home/Hero/Hero";
@@ -104,6 +105,8 @@ export default async function Home() {
     })
     .limit(6)
     .lean();
+
+  console.log(featuredGallery);
 
   return (
     <>
