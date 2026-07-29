@@ -207,7 +207,7 @@ export default function PackageCard({
 
         <div className="mt-8 rounded-2xl border border-emerald-100 bg-emerald-50 p-5">
 
-          <div className="flex items-end justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
             <div>
 
@@ -242,7 +242,21 @@ export default function PackageCard({
             </div>
 
             {discount > 0 && (
-              <div className="rounded-xl bg-white px-4 py-2 text-right shadow">
+  <div
+    className="
+      mt-4
+      w-full
+      rounded-xl
+      bg-white
+      px-4
+      py-2
+      text-center
+      shadow
+      sm:mt-0
+      sm:w-auto
+      sm:text-right
+    "
+  >
 
                 <p className="text-xs text-slate-500">
                   You Save
