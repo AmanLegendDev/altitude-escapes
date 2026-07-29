@@ -20,6 +20,14 @@ export async function getAllPackages() {
     })
     .lean();
 
+    console.log(
+  packages.map((p) => ({
+    name: p.name,
+    category: p.category,
+    destination: p.destination,
+  }))
+);
+
   return JSON.parse(JSON.stringify(packages));
 }
 
