@@ -60,38 +60,29 @@ export const destinationSchema = z.object({
   gallery: z
     .array(z.string().url("Gallery image must be a valid URL."))
     .min(1, "At least one gallery image is required."),
-
-  startingPrice: z
-    .number({
-      invalid_type_error: "Starting price must be a number.",
-    })
-    .min(0, "Starting price cannot be negative."),
+startingPrice: z
+  .number()
+  .min(0, "Starting price cannot be negative."),
 
   duration: z
     .string()
     .trim()
     .min(2, "Duration is required."),
 
-  rating: z
-    .number({
-      invalid_type_error: "Rating must be a number.",
-    })
-    .min(0)
-    .max(5),
+ rating: z
+  .number()
+  .min(0)
+  .max(5),
 
-  reviewCount: z
-    .number({
-      invalid_type_error: "Review count must be a number.",
-    })
-    .min(0),
+reviewCount: z
+  .number()
+  .min(0),
 
   featured: z.boolean(),
 
-  featuredOrder: z
-    .number({
-      invalid_type_error: "Featured order must be a number.",
-    })
-    .min(0),
+featuredOrder: z
+  .number()
+  .min(0),
 
   seoTitle: z
     .string()

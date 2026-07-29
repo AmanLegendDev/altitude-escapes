@@ -1,5 +1,5 @@
 "use client";
-
+import type { Variants } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -11,22 +11,20 @@ import {
   Star,
 } from "lucide-react";
 
-const fadeUp = {
+const fadeUp: Variants = {
   hidden: {
     opacity: 0,
-    y: 40,
+    y: 30,
   },
-  visible: (delay = 0) => ({
+  visible: {
     opacity: 1,
     y: 0,
     transition: {
       duration: 0.7,
-      delay,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1],
     },
-  }),
+  },
 };
-
 export default function DestinationHero() {
   return (
     <section className="relative overflow-hidden bg-[#F8FAFC]">

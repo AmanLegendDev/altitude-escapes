@@ -5,9 +5,8 @@ import PackageGrid from "./PackageGrid";
 import PackageCTA from "./PackageCTA";
 
 import { Package } from "@/types/package";
-import { Destination } from "@/types/destination";
-import { Category } from "@/types/category";
-
+import type { Destination } from "@/lib/types/destination";
+import type { Category } from "@/lib/types/category";
 interface PackageListingProps {
   packages: Package[];
   categories: Category[];

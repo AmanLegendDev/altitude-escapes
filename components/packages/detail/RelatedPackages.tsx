@@ -56,9 +56,9 @@ export default function RelatedPackages({
         <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
           {packages.slice(0, 3).map((pkg) => (
             <PackageCard
-              key={pkg._id.toString()}
-              package={pkg}
-            />
+  key={pkg._id}
+  packageData={pkg}
+/>
           ))}
         </div>
 

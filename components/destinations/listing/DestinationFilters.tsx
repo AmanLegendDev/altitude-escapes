@@ -68,10 +68,10 @@ export default function DestinationFilters({
           Featured
         </label>
 
-        <Select
-          value={featured}
-          onValueChange={setFeatured}
-        >
+      <Select
+  value={featured}
+  onValueChange={(value) => setFeatured(value ?? "all")}
+>
           <SelectTrigger className="h-12 rounded-xl">
             <SelectValue placeholder="Featured" />
           </SelectTrigger>
@@ -100,10 +100,10 @@ export default function DestinationFilters({
           State
         </label>
 
-        <Select
-          value={state}
-          onValueChange={setState}
-        >
+       <Select
+  value={state}
+  onValueChange={(value) => setState(value ?? "all")}
+>
           <SelectTrigger className="h-12 rounded-xl">
             <SelectValue placeholder="Select State" />
           </SelectTrigger>
@@ -139,10 +139,10 @@ export default function DestinationFilters({
           Sort By
         </label>
 
-        <Select
-          value={sort}
-          onValueChange={setSort}
-        >
+       <Select
+  value={sort}
+  onValueChange={(value) => setSort(value ?? "latest")}
+>
           <SelectTrigger className="h-12 rounded-xl">
             <SelectValue placeholder="Sort Destinations" />
           </SelectTrigger>

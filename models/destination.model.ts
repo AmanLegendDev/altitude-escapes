@@ -43,7 +43,7 @@ export interface IDestination extends Document {
 
   seoDescription: string;
 
-  status: "active" | "inactive";
+status: "active" | "draft";
 
   createdAt: Date;
 
@@ -160,12 +160,11 @@ const DestinationSchema =
         type: String,
         default: "",
       },
-
-      status: {
-        type: String,
-        enum: ["active", "inactive"],
-        default: "active",
-      },
+status: {
+  type: String,
+  enum: ["active", "draft"],
+  default: "draft",
+},
     },
     {
       timestamps: true,

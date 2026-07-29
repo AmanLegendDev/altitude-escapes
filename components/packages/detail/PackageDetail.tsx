@@ -24,11 +24,11 @@ export default function PackageDetail({
     console.log(pkg);
   return (
     <>
-      <PackageBreadcrumb
-        packageName={pkg.name}
-        destination={pkg.destination}
-      />
-
+    <PackageBreadcrumb
+  packageName={pkg.name}
+  destinationName={pkg.destination.name}
+  destinationSlug={pkg.destination.slug}
+/>
    <PackageHeader
   name={pkg.name}
   destination={pkg.destination.name}
@@ -79,9 +79,7 @@ export default function PackageDetail({
   childPolicy={pkg.childPolicy}
 />
 
-      <PackageFAQ
-        faqs={pkg.faqs}
-      />
+      <PackageFAQ />
 
       <RelatedPackages
         packages={relatedPackages}

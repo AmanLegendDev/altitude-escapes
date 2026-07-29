@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import type { Destination } from "@/lib/types/destination";
 
   import { filterDestinations } from "@/lib/utils/destination-filter";
 
@@ -11,25 +12,7 @@ import DestinationGrid from "@/components/destinations/listing/DestinationGrid";
 import DestinationCTA from "@/components/destinations/listing/DestinationCTA";
 
 
-interface Destination {
-  _id: string;
-  slug: string;
-  name: string;
-  heroImage: string;
-  shortDescription: string;
-  description: string;
-  country: string;
-  state: string;
-  city: string;
-  bestTime: string;
-  altitude: string;
-  duration: string;
-  rating: number;
-  reviewCount: number;
-  featured: boolean;
-  featuredOrder: number;
-  startingPrice: number;
-}
+
 
 interface DestinationListingProps {
   destinations: Destination[];

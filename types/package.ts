@@ -7,6 +7,10 @@ export type Difficulty =
   | "moderate"
   | "difficult";
 
+
+
+
+
 export interface ItineraryDay {
   day: number;
   title: string;
@@ -19,6 +23,22 @@ export interface ChildPolicy {
   halfPricePercentage: number;
 }
 
+
+
+export interface PackageCategory {
+  _id: string;
+  name: string;
+  slug: string;
+}
+
+export interface PackageDestination {
+  _id: string;
+  name: string;
+  slug: string;
+  state: string;
+  city: string;
+  country: string;
+}
 export interface Package {
   _id: string;
 
@@ -28,9 +48,9 @@ export interface Package {
   shortDescription: string;
   description: string;
 
-  category: string;
+ category: PackageCategory;
 
-  destination: string;
+destination: PackageDestination;
 
   heroImage: string;
   gallery: string[];
@@ -38,6 +58,8 @@ export interface Package {
   duration: string;
 
   difficulty: Difficulty;
+
+  
 
   groupSize: string;
 

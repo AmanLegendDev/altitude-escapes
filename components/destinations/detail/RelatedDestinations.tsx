@@ -7,8 +7,7 @@ import {
   Star,
 } from "lucide-react";
 
-import { Destination } from "@/types/destination";
-
+import type { Destination } from "@/lib/types/destination";
 interface RelatedDestinationsProps {
   destinations: Destination[];
 }
