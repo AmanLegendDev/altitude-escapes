@@ -120,7 +120,7 @@ export default function DestinationBookingCard({
         <div className="space-y-3 border-t border-slate-100 p-6">
 
           <Link
-            href="/contact"
+            href="/booking"
             className="
               flex
               h-12

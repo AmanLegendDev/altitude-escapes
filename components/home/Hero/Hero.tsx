@@ -172,10 +172,14 @@ variants={fadeUp}
       width={900}
       height={1000}
       priority
-      className="h-[430px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[520px] lg:h-[690px] lg:w-[560px] rounded-tl-[42px]
+      className="h-[400px]
+sm:h-[500px]
+lg:h-[690px] w-full object-cover transition duration-700 hover:scale-105 sm:h-[520px] lg:h-[690px] lg:w-[560px] rounded-tl-[42px]
 rounded-tr-[42px]
 rounded-bl-[42px]
-rounded-br-[90px]"
+rounded-br-[48px]
+sm:rounded-br-[60px]
+lg:rounded-br-[90px]"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-[#0F4C81]/25 via-transparent to-transparent" /> 
 
@@ -186,8 +190,23 @@ rounded-br-[90px]"
 <motion.div
   variants={float}
   animate="animate"
-  className="absolute left-[-20px] top-12 rounded-3xl border border-white/40 bg-white/85 px-5 py-4 shadow-2xl backdrop-blur-xl"
->
+className="
+absolute
+left-0
+top-20
+sm:left-4
+sm:top-20
+lg:left-[-20px]
+lg:top-12
+rounded-3xl
+border
+border-white/40
+bg-white/85
+px-5
+py-4
+shadow-2xl
+
+">
     <p className="text-xs uppercase tracking-widest text-slate-500">
       Customer Rating
     </p>
@@ -210,7 +229,10 @@ rounded-br-[90px]"
   transition={{
     delay: 0.5,
   }}
-  className="absolute bottom-10 left-[-30px] rounded-3xl border border-white/40 bg-white/85 px-6 py-5 shadow-2xl backdrop-blur-xl"
+  className="absolute bottom-10 left-0
+bottom-6
+sm:left-2
+lg:left-[-30px] rounded-3xl border border-white/40 bg-white/85 px-6 py-5 shadow-2xl backdrop-blur-xl"
 >
     <h3 className="text-4xl font-bold text-[#0F4C81]">
       5000+
@@ -230,7 +252,10 @@ rounded-br-[90px]"
   transition={{
     delay: 1,
   }}
-  className="absolute bottom-16 right-[-20px] rounded-3xl border border-white/40 bg-[#0F4C81] px-6 py-5 text-white shadow-2xl"
+  className="absolute bottom-16 right-0
+bottom-10
+sm:right-2
+lg:right-[-20px] rounded-3xl border border-white/40 bg-[#0F4C81] px-6 py-5 text-white shadow-2xl"
 >
     <h3 className="text-2xl font-bold">
       100%
@@ -245,7 +270,7 @@ rounded-br-[90px]"
   variants={float}
   animate="animate"
   transition={{ delay: 1.5 }}
-  className="absolute right-6 top-8 rounded-full border border-white/40 bg-white/90 px-4 py-2 shadow-xl backdrop-blur-xl"
+  className="absolute right-0 top-8 rounded-full border border-white/40 bg-white/90 px-4 py-2 shadow-xl backdrop-blur-xl"
 >
   <p className="text-sm font-semibold text-slate-700">
     📍 Shimla • Manali • Spiti

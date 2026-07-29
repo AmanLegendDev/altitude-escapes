@@ -21,9 +21,10 @@ export default function PackageDetail({
   package: pkg,
   relatedPackages,
 }: PackageDetailProps) {
-    console.log(pkg);
+    
   return (
     <>
+    <div className="pt-18" >
     <PackageBreadcrumb
   packageName={pkg.name}
   destinationName={pkg.destination.name}
@@ -88,6 +89,8 @@ export default function PackageDetail({
       <PackageCTA
         packageName={pkg.name}
       />
+      </div>
     </>
+    
   );
 }

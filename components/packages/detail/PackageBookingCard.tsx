@@ -122,20 +122,20 @@ export default function PackageBookingCard({
           <div className="space-y-3">
 
             <Link
-              href={`/contact?package=${encodeURIComponent(packageName)}`}
+              href="/booking"
               className="flex w-full items-center justify-center rounded-xl bg-emerald-600 px-6 py-4 font-semibold text-white transition hover:bg-emerald-700"
             >
               Book This Package
             </Link>
 
             <Link
-              href="https://wa.me/919999999999"
+              href="/inquiry"
               target="_blank"
               className="flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-600 px-6 py-4 font-semibold text-emerald-700 transition hover:bg-emerald-50"
             >
               <MessageCircle className="h-5 w-5" />
 
-              WhatsApp Inquiry
+              Inquire Now
             </Link>
 
             <Link

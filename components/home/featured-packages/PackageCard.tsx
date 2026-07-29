@@ -242,10 +242,7 @@ export default function PackageCard({
             >
               <span>View Package</span>
 
-              <ArrowUpRight
-                size={18}
-                className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
-              />
+           
             </motion.div>
           </div>
         </div>

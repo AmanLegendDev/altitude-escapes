@@ -22,6 +22,7 @@ export default function PackageSearch({
     setSearch(value);
 
     onSearch?.(value);
+    console.log("Typing:", value);
   };
 
   const clearSearch = () => {

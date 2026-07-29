@@ -171,7 +171,7 @@ export default function PackageHeader({
             <div className="mt-8 space-y-3">
 
               <Link
-                href="/contact"
+                href="/booking"
                 className="flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-4 font-semibold text-white transition hover:bg-emerald-700"
               >
                 Book This Package

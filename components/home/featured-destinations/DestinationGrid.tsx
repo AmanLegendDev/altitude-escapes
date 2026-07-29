@@ -9,25 +9,26 @@ export default function DestinationGrid({
 }: DestinationGridProps) {
   return (
     <div
-      className="
-        grid
-        gap-8
-
-        md:grid-cols-2
-
-        xl:grid-cols-3
-      "
+className="
+  grid
+  gap-8
+  md:grid-cols-2
+  xl:grid-cols-3
+  xl:auto-rows-[430px]
+"
+>
+  {destinations.map((destination, index) => (
+    <div
+      key={destination._id}
+      className={index === 0 ? "xl:row-span-2" : ""}
     >
-      {destinations.map(
-        (destination, index) => (
-          <DestinationCard
-            key={destination._id}
-            destination={destination}
-            priority={index === 0}
-            large={index === 0}
-          />
-        )
-      )}
+      <DestinationCard
+        destination={destination}
+        priority={index === 0}
+        large={index === 0}
+      />
     </div>
+  ))}
+</div>
   );
 }

@@ -85,7 +85,7 @@ export default function PackageHero() {
             </Link>
 
             <Link
-              href="/contact"
+              href="/inquiry"
               className="inline-flex items-center rounded-xl border border-white/20 px-6 py-3 font-semibold text-white transition hover:bg-white/10"
             >
               Plan Custom Trip

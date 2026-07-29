@@ -171,7 +171,7 @@ export default function Navbar() {
     () => (
       <Link
         href="/"
-        className="flex shrink-0 items-center gap-3"
+        className="flex shrink-0 items-center gap-2"
         aria-label="Altitude Escapes Home"
       >
 <Image
@@ -180,20 +180,20 @@ export default function Navbar() {
   width={52}
   height={52}
   priority
-  className="h-20 w-20 object-contain"
+className="h-16 w-16 object-contain sm:h-14 sm:w-14 lg:h-20 lg:w-20"
 />
         
         
 
         <div className="leading-tight">
-          <h2 className="font-heading text-[18px] font-bold tracking-tight text-slate-900">
+          <h2 className="font-heading text-[15px] sm:text-[16px] lg:text-[18px]font-bold tracking-tight text-slate-900">
             Altitude{" "}
             <span className="text-[#3BAEA0]">
               Escapes
             </span>
           </h2>
 
-          <p className="text-[11px] uppercase tracking-[0.30em] text-slate-500">
+          <p className="text-[9px] uppercase tracking-[0.18em] text-slate-500">
             Luxury Himalayan Travel
           </p>
         </div>
@@ -230,7 +230,7 @@ export default function Navbar() {
           className="
             relative
             flex
-            h-[76px]
+           h-[68px] sm:h-[72px] lg:h-[76px]
             w-full
             max-w-[1480px]
             items-center
@@ -238,7 +238,7 @@ export default function Navbar() {
             rounded-[28px]
             border
             backdrop-blur-2xl
-            px-5
+            px-4 sm:px-6 lg:px-10
             sm:px-7
             lg:px-10
           "
@@ -365,15 +365,17 @@ export default function Navbar() {
             className="
               relative
               flex
-              h-12
-              w-12
+              h-10
+w-10
+sm:h-11
+sm:w-11
               items-center
               justify-center
-              rounded-2xl
+              rounded-xl
               border
               border-slate-200
               bg-white/80
-              backdrop-blur-xl
+             
               lg:hidden
             "
           >
@@ -415,7 +417,7 @@ export default function Navbar() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
               onClick={() => setMobileOpen(false)}
-              className="fixed inset-0 z-40 bg-slate-950/40 backdrop-blur-md lg:hidden"
+              className="fixed inset-0 z-40 bg-slate-950/40 lg:hidden"
             />
 
             <motion.aside
@@ -435,7 +437,7 @@ export default function Navbar() {
                 border-white/20
                 bg-white/90
                 p-8
-                backdrop-blur-3xl
+              
                 shadow-[0_30px_80px_rgba(15,23,42,.18)]
                 lg:hidden
               "

@@ -7,6 +7,7 @@ import DestinationHero from "@/components/destinations/listing/DestinationHero";
 import DestinationStats from "@/components/destinations/listing/DestinationStats";
 import DestinationListing from "./DestinationListing";
 import { getAllDestinations } from "@/lib/queries/destination.queries";
+import { Footer } from "@/components/footer";
 
 const destinations = await getAllDestinations();
 
@@ -75,10 +76,12 @@ export default async function DestinationsPage({
             initialFeatured={params.featured ?? "all"}
             initialSort={params.sort ?? "featured"}
           />
+         
 
         </Suspense>
 
       </div>
+       <Footer/>
 
     </main>
   );

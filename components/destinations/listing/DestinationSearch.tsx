@@ -83,7 +83,9 @@ export default function DestinationSearch({
   exit={{ scale: 0 }}
   whileTap={{ scale: 0.9 }}
   type="button"
-  onClick={() => setSearch("")}
+  onClick={() => {
+  setSearch("");
+}}
   className="
     absolute
     right-4

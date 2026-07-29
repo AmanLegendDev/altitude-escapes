@@ -27,8 +27,7 @@ export default function PackageBreadcrumb({
     <section className="border-b border-slate-200 bg-white/90 backdrop-blur">
       <div className="container mx-auto px-6 py-5">
 
-        <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-
+<div className="flex flex-col gap-4">
           {/* Back Button */}
 
           <button
@@ -42,58 +41,45 @@ export default function PackageBreadcrumb({
 
           {/* Breadcrumb */}
 
-          <nav
-            aria-label="Breadcrumb"
-            className="overflow-x-auto"
-          >
-            <ol className="flex min-w-max items-center gap-2 text-sm">
+        <nav aria-label="Breadcrumb">
+  <ol className="flex flex-wrap items-center gap-2 text-sm">
 
-              <li>
-                <Link
-                  href="/"
-                  className="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-slate-500 transition hover:text-emerald-600"
-                >
-                  <Home className="h-4 w-4" />
+    <li>
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-slate-500 transition hover:text-emerald-600"
+      >
+        <Home className="h-4 w-4" />
+        <span className="hidden sm:inline">
+          Home
+        </span>
+      </Link>
+    </li>
 
-                  Home
-                </Link>
-              </li>
+    <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
 
-              <ChevronRight className="h-4 w-4 text-slate-400" />
+    <li>
+      <Link
+        href="/packages"
+        className="rounded-lg px-2 py-1 text-slate-500 transition hover:text-emerald-600"
+      >
+        Packages
+      </Link>
+    </li>
 
-              <li>
-                <Link
-                  href="/packages"
-                  className="rounded-lg px-2 py-1 text-slate-500 transition hover:text-emerald-600"
-                >
-                  Packages
-                </Link>
-              </li>
+    <ChevronRight className="h-4 w-4 shrink-0 text-slate-400" />
 
-              <ChevronRight className="h-4 w-4 text-slate-400" />
+    <li className="min-w-0 flex-1">
+      <span
+        className="block truncate rounded-lg bg-emerald-50 px-3 py-1 font-semibold text-emerald-700"
+        title={packageName}
+      >
+        {packageName}
+      </span>
+    </li>
 
-              <li>
-                <Link
-                  href={`/destinations/${destinationSlug}`}
-                  className="inline-flex items-center gap-2 rounded-lg px-2 py-1 text-slate-500 transition hover:text-emerald-600"
-                >
-                  <MapPin className="h-4 w-4" />
-
-                  {destinationName}
-                </Link>
-              </li>
-
-              <ChevronRight className="h-4 w-4 text-slate-400" />
-
-              <li
-                className="max-w-[220px] truncate rounded-lg bg-emerald-50 px-3 py-1 font-semibold text-emerald-700"
-                title={packageName}
-              >
-                {packageName}
-              </li>
-
-            </ol>
-          </nav>
+  </ol>
+</nav>
 
         </div>
 

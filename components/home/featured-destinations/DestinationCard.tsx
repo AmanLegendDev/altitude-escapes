@@ -70,7 +70,7 @@ export default function DestinationCard({
 
             ${
               large
-                ? "h-[520px]"
+                ? "h-[430px]"
                 : "h-[430px]"
             }
           `}

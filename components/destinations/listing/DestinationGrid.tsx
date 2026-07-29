@@ -59,26 +59,11 @@ export default function DestinationGrid({
       "
     >
       {destinations.map((destination) => (
-        <motion.div
-          key={destination._id}
-          variants={{
-            hidden: {
-              opacity: 0,
-              y: 40,
-            },
-            visible: {
-              opacity: 1,
-              y: 0,
-            },
-          }}
-          transition={{
-            duration: 0.55,
-          }}
-        >
+       <div key={destination._id}>
           <DestinationCard
             destination={destination}
           />
-        </motion.div>
+        </div>
       ))}
     </motion.section>
   );

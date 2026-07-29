@@ -19,6 +19,8 @@ interface DestinationFiltersProps {
 
   sort: string;
   setSort: (value: string) => void;
+
+  states: string[];
 }
 
 export default function DestinationFilters({
@@ -27,6 +29,7 @@ export default function DestinationFilters({
   state,
   setState,
   sort,
+   states,
   setSort,
 }: DestinationFiltersProps) {
   return (
@@ -110,21 +113,20 @@ export default function DestinationFilters({
 
           <SelectContent>
 
-            <SelectItem value="all">
-              All States
-            </SelectItem>
+            
 
-            <SelectItem value="himachal">
-              Himachal Pradesh
-            </SelectItem>
+           <SelectItem value="all">
+  All States
+</SelectItem>
 
-            <SelectItem value="uttarakhand">
-              Uttarakhand
-            </SelectItem>
-
-            <SelectItem value="kashmir">
-              Jammu & Kashmir
-            </SelectItem>
+{states.map((stateName) => (
+  <SelectItem
+    key={stateName}
+    value={stateName}
+  >
+    {stateName}
+  </SelectItem>
+))}
 
           </SelectContent>
 

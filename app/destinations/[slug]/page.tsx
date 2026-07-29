@@ -14,6 +14,7 @@ import DestinationInfo from "@/components/destinations/detail/DestinationInfo";
 import DestinationFAQ from "@/components/destinations/detail/DestinationFAQ";
 import RelatedDestinations from "@/components/destinations/detail/RelatedDestinations";
 import DestinationCTA from "@/components/destinations/detail/DestinationCTA";
+import { Footer } from "@/components/footer";
 
 interface DestinationPageProps {
   params: Promise<{
@@ -112,7 +113,7 @@ export default async function DestinationPage({
 
 
       return (
-    <main className="min-h-screen bg-slate-50">
+   <main className="min-h-screen bg-slate-50 pt-22 lg:pt-28">
 
       {/* Breadcrumb */}
 
@@ -189,6 +190,7 @@ export default async function DestinationPage({
       <DestinationCTA
         destinationName={destination.name}
       />
+      <Footer/>
 
     </main>
   );
