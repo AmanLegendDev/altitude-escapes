@@ -19,6 +19,7 @@ export async function generateMetadata({
   const { slug } = await params;
 
   const pkg = await getPackageBySlug(slug);
+  console.log("PACKAGE:", JSON.stringify(pkg, null, 2));
 
   if (!pkg) {
     return {

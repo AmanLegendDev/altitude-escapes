@@ -10,10 +10,14 @@ interface RelatedPackagesProps {
   packages: Package[];
 }
 
+
+
 export default function RelatedPackages({
   packages,
 }: RelatedPackagesProps) {
   if (!packages?.length) return null;
+
+  
 
   return (
     <section className="bg-slate-50 py-20">
