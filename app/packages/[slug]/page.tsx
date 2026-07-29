@@ -32,9 +32,7 @@ export async function generateMetadata({
     openGraph: {
       title: pkg.name,
       description: pkg.shortDescription,
-      images: pkg.images?.[0]?.url
-        ? [pkg.images[0].url]
-        : [],
+      images: pkg.heroImage ? [pkg.heroImage] : [],
     },
   };
 }
@@ -50,12 +48,11 @@ export default async function PackagePage({
     notFound();
   }
 
-  const relatedPackages =
-    await getRelatedPackages(
-      pkg.category,
-      pkg._id.toString(),
-      3
-    );
+  const relatedPackages = await getRelatedPackages(
+    pkg.destination._id.toString(),
+    pkg.slug,
+    3
+  );
 
   return (
     <PackageDetail
