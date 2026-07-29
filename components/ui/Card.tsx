@@ -1,18 +1,34 @@
 import * as React from "react";
 
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
-export function Card({
+function Card({
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+}: React.ComponentProps<"div">) {
   return (
     <div
+      data-slot="card"
       className={cn(
-        "rounded-2xl border bg-white shadow-sm transition-shadow hover:shadow-lg",
+        "rounded-xl border bg-white text-slate-950 shadow-sm",
         className
       )}
       {...props}
     />
   );
 }
+
+function CardContent({
+  className,
+  ...props
+}: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="card-content"
+      className={cn("p-6", className)}
+      {...props}
+    />
+  );
+}
+
+export { Card, CardContent };

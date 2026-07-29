@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
-import { Inter, Poppins } from "next/font/google";
+import { Inter, Poppins, Geist } from "next/font/google";
 import "./globals.css";
 import Navbaar from "@/components/layout/Navbar";
 import { Toaster } from "sonner";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,7 +67,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${poppins.variable}`}
+      className={cn(inter.variable, poppins.variable, "font-sans", geist.variable)}
     >
     
       <body>
