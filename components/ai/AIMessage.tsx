@@ -8,6 +8,8 @@ import {
 } from "lucide-react";
 import TypingText from "./TypingText";
 
+import RichMessage from "./RichMessage";
+
 import { memo, useState } from "react";
 
 interface AIMessageProps {
@@ -186,22 +188,22 @@ ${
   </div>
 )}
 
-     <p
-  className="
-    whitespace-pre-wrap
-    text-[15px]
-    leading-7
-  "
->
   {isUser ? (
-    content
-  ) : (
-    <TypingText
-      text={content}
-      animate={animate}
-    />
-  )}
-</p>
+  <p
+    className="
+      whitespace-pre-wrap
+      text-[15px]
+      leading-7
+    "
+  >
+    {content}
+  </p>
+) : (
+  <RichMessage
+    content={content}
+    animate={animate}
+  />
+)}
           {!isUser && (
             <button
               onClick={
