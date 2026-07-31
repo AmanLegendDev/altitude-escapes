@@ -6,7 +6,7 @@ import {
   FeaturedDestinations,
 } from "@/components/home/featured-destinations";
 import GalleryModel from "@/models/gallery.model";
-
+import AIWidget from "@/components/ai/AIWidget";
 import {
   Footer,
 } from "@/components/footer";
@@ -106,7 +106,7 @@ export default async function Home() {
     .limit(6)
     .lean();
 
-  console.log(featuredGallery);
+  
 
   return (
     <>
@@ -142,8 +142,11 @@ export default async function Home() {
   )}
 />
 <CTA />
+<AIWidget />
 
 <Footer />
+
+
     </>
   );
 }
