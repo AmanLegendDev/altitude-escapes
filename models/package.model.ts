@@ -5,6 +5,9 @@ import mongoose, {
   Types,
 } from "mongoose";
 
+import "./destination.model";
+import "./category.model";
+
 export type PackageStatus =
   | "active"
   | "inactive";
