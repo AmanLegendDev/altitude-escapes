@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import {
-  Youtube,
+  Play,
   X,
 } from "lucide-react";
 
@@ -53,7 +53,7 @@ export default function YoutubeDialog({
           hover:bg-slate-100
         "
       >
-        <Youtube size={18} />
+        <Play size={18} />
       </button>
 
       {open && (

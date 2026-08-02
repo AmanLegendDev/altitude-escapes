@@ -1,4 +1,3 @@
-"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -23,13 +22,8 @@ interface BlogCardProps {
     category: {
       name: string;
     };
-
-    author: {
-  name: string;
-};
   };
 }
-
 export default function BlogCard({
   blog,
 }: BlogCardProps) {

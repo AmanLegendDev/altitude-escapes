@@ -22,23 +22,17 @@ export default function FloatingMenu({
   if (!editor) return null;
 
   return (
-    <TiptapFloatingMenu
-      editor={editor}
-      shouldShow={({ editor }) => {
-        const {
-          $from,
-        } = editor.state.selection;
+<TiptapFloatingMenu
+  editor={editor}
+  shouldShow={({ editor }) => {
+    const { $from } = editor.state.selection;
 
-        return (
-          editor.isEditable &&
-          $from.parent.textContent === ""
-        );
-      }}
-      tippyOptions={{
-        duration: 150,
-        placement: "left",
-      }}
-    >
+    return (
+      editor.isEditable &&
+      $from.parent.textContent === ""
+    );
+  }}
+>
       <div
         className="
           flex

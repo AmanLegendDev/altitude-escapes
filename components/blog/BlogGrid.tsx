@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { motion } from "framer-motion";
 
 import BlogCard from "./BlogCard";
@@ -16,6 +15,7 @@ interface BlogGridProps {
     category: {
       name: string;
     };
+
   }[];
 }
 

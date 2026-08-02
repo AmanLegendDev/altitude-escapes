@@ -31,26 +31,42 @@ export const metadata: Metadata = {
   description:
     "Premium travel experiences, luxury destinations, curated adventures and unforgettable journeys. Every Journey Begins With Trust.",
 
-  keywords: [
-    "Travel Agency",
-    "Luxury Travel",
-    "Adventure Tours",
-    "Holiday Packages",
-    "Travel Booking",
-    "Altitude Escapes",
-  ],
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 
-  applicationName: "Altitude Escapes",
+  openGraph: {
+    title: "Altitude Escapes",
+    description:
+      "Premium travel experiences, luxury destinations, curated adventures and unforgettable journeys.",
 
-  authors: [
-    {
-      name: "Aman Digital Solutions",
-    },
-  ],
+    url: "https://altitude-escapes.vercel.app",
 
-  creator: "Aman Digital Solutions",
+    siteName: "Altitude Escapes",
 
-  publisher: "Aman Digital Solutions",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Altitude Escapes",
+      },
+    ],
+
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Altitude Escapes",
+    description:
+      "Premium travel experiences, luxury destinations and unforgettable Himalayan journeys.",
+
+    images: ["/og-image.jpg"],
+  },
 
   robots: {
     index: true,

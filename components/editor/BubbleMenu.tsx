@@ -25,8 +25,6 @@ export default function BubbleMenu({
   editor={editor}
   options={{
     placement: "top",
-    animation: "shift-away",
-    duration: 150,
   }}
 >
       <div

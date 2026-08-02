@@ -10,7 +10,7 @@ import {
   Minus,
   Table2,
   Image,
-  Youtube,
+  Play,
 } from "lucide-react";
 
 export interface SlashItem {
@@ -177,7 +177,7 @@ export const slashItems: SlashItem[] = [
   {
     title: "Youtube",
     description: "Embed YouTube video",
-    icon: Youtube,
+    icon: Play,
 
     command: ({ editor }) => {
       const url = window.prompt(

@@ -1,7 +1,7 @@
 "use client";
 
 import {
-    
+  useRef,
   forwardRef,
   useImperativeHandle,
   useState,
@@ -22,8 +22,7 @@ export interface SlashCommandsRef {
     event: KeyboardEvent;
   }) => boolean;
 }
-const [selected, setSelected] =
-  useState(0);
+
 const SlashCommands = forwardRef<
   SlashCommandsRef,
   SlashCommandsProps
@@ -38,6 +37,11 @@ const SlashCommands = forwardRef<
   if (!items.length) {
     return null;
   }
+
+  const [selected, setSelected] =
+  useState(0);
+
+  const divRef = useRef<HTMLDivElement>(null);
 
   useImperativeHandle(ref, () => ({
   onKeyDown: ({ event }) => {
@@ -83,7 +87,6 @@ const SlashCommands = forwardRef<
 
   return (
     <div
-      ref={ref}
       className="
         w-80
 
