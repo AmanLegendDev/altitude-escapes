@@ -28,8 +28,23 @@ export default function DestinationSearch({
       }}
       viewport={{
         once: true,
+
+        
       }}
-      className="relative w-full"
+
+      
+     className="
+sticky
+top-20
+z-30
+
+w-full
+
+bg-slate-50/90
+backdrop-blur-md
+
+pb-4
+"
     >
       {/* Search Icon */}
 
@@ -37,20 +52,40 @@ export default function DestinationSearch({
   animate={{
     scale: search ? 1.1 : 1,
     rotate: search ? 8 : 0,
+
+    
   }}
   transition={{
     duration: 0.2,
   }}
+  whileInView={{
+  opacity: 1,
+  y: 0,
+}}
+
+whileHover={{
+  scale: 1.005,
+}}
   className="absolute left-5 top-1/2 -translate-y-1/2"
 >
-  <Search className="h-5 w-5 text-slate-400" />
+  <Search
+  className={`h-5 w-5 ${
+    search
+      ? "text-emerald-600"
+      : "text-slate-400"
+  }`}
+/>
 </motion.div>
 
       {/* Input */}
 
       <input
         type="text"
-        placeholder="Search destinations..."
+        placeholder={
+  search
+    ? "Searching destinations..."
+    : "Search destinations..."
+}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="

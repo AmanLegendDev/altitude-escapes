@@ -1,5 +1,5 @@
 "use client";
-
+import { AnimatePresence, motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import type { Destination } from "@/lib/types/destination";
 
@@ -38,6 +38,8 @@ export default function DestinationListing({
 
   const [sort, setSort] = useState(initialSort);
 
+  const searching = search.trim().length > 0;
+
 
 
 const filteredDestinations = useMemo(() => {
@@ -55,8 +57,7 @@ const filteredDestinations = useMemo(() => {
   sort,
 ]);
 
-console.log("Search:", search);
-console.log("Results:", filteredDestinations.length);
+
 
 const states = useMemo(() => {
   return [...new Set(destinations.map((d) => d.state.trim()))]
@@ -72,19 +73,51 @@ const states = useMemo(() => {
           setSearch={setSearch}
         />
 
-       <DestinationFilters
-  featured={featured}
-  setFeatured={setFeatured}
-  state={state}
-  setState={setState}
-  sort={sort}
-  setSort={setSort}
-  states={states}
-/>
+    <AnimatePresence mode="wait">
+  {!searching && (
+    <motion.div
+      initial={{
+        opacity: 1,
+        height: "auto",
+      }}
+      animate={{
+        opacity: 1,
+        height: "auto",
+      }}
+      exit={{
+        opacity: 0,
+        height: 0,
+        marginTop: 0,
+        marginBottom: 0,
+      }}
+      transition={{
+        duration: 0.3,
+      }}
+      className="overflow-hidden"
+    >
+      <DestinationFilters
+        featured={featured}
+        setFeatured={setFeatured}
+        state={state}
+        setState={setState}
+        sort={sort}
+        setSort={setSort}
+        states={states}
+      />
+    </motion.div>
+  )}
+</AnimatePresence>
 
-        <DestinationGrid
-          destinations={filteredDestinations}
-        />
+       <motion.div
+  layout
+  transition={{
+    duration: 0.35,
+  }}
+>
+  <DestinationGrid
+    destinations={filteredDestinations}
+  />
+</motion.div>
 
       </section>
 

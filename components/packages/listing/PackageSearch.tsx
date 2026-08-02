@@ -1,4 +1,5 @@
 "use client";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { useState } from "react";
 import { Search, X } from "lucide-react";
@@ -32,20 +33,62 @@ export default function PackageSearch({
   };
 
   return (
-    <section className="-mt-12 relative z-20 px-6">
+    <section
+  className="
+    sticky
+    top-20
+    z-30
+
+    -mt-12
+
+    px-6
+
+    bg-white/90
+    backdrop-blur-md
+
+    pb-4
+  "
+>
       <div className="container mx-auto">
         <div className="mx-auto max-w-4xl rounded-3xl border border-slate-200 bg-white p-4 shadow-2xl">
           <div className="flex items-center gap-3">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-100">
-              <Search className="h-5 w-5 text-emerald-600" />
-            </div>
+           <motion.div
+  animate={{
+    scale: search ? 1.1 : 1,
+    rotate: search ? 8 : 0,
+  }}
+  transition={{
+    duration: 0.2,
+  }}
+  className="
+    flex
+    h-12
+    w-12
+    items-center
+    justify-center
+    rounded-xl
+    bg-emerald-100
+  "
+>
+  <Search
+    className={`h-5 w-5 ${
+      search
+        ? "text-emerald-700"
+        : "text-emerald-600"
+    }`}
+  />
+</motion.div>
 
             <div className="relative flex-1">
               <input
                 type="text"
                 value={search}
                 onChange={handleChange}
-                placeholder="Search by package, destination, adventure..."
+               placeholder={
+  search
+    ? "Searching packages..."
+    : "Search by package, destination, adventure..."
+}
                 className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-4 pr-12 text-slate-700 outline-none transition-all duration-200 focus:border-emerald-500 focus:bg-white focus:ring-4 focus:ring-emerald-100"
               />
 
@@ -68,34 +111,9 @@ export default function PackageSearch({
             </button>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
-            <span className="text-sm font-medium text-slate-500">
-              Popular:
-            </span>
-
-            {[
-              "Shimla",
-              "Manali",
-              "Spiti",
-              "Kasol",
-              "Kashmir",
-              "Weekend Trips",
-            ].map((item) => (
-              <button
-                key={item}
-                type="button"
-                onClick={() => {
-                  setSearch(item);
-                  onSearch?.(item);
-                }}
-                className="rounded-full border border-slate-200 px-4 py-1.5 text-sm text-slate-600 transition hover:border-emerald-500 hover:bg-emerald-50 hover:text-emerald-700"
-              >
-                {item}
-              </button>
-            ))}
-          </div>
+         
         </div>
       </div>
-    </section>
+    </section>  
   );
 }

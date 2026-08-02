@@ -3,10 +3,13 @@ import EmptyState from "./EmptyState";
 
 interface PackageGridProps {
   packages: any[];
+  searching?: boolean;
+  search?: string;
 }
-
 export default function PackageGrid({
   packages,
+  searching = false,
+  search = "",
 }: PackageGridProps) {
   if (!packages.length) {
     return <EmptyState />;
@@ -22,24 +25,40 @@ export default function PackageGrid({
         {/* Heading */}
 
         <div className="mb-10 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+<div>
+  {searching ? (
+    <>
+      <span className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
+        Search Results
+      </span>
 
-          <div>
+      <h2 className="mt-2 text-4xl font-bold text-slate-900">
+        Results for "{search}"
+      </h2>
 
-            <span className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
-              Curated Collection
-            </span>
+      <p className="mt-3 max-w-2xl text-slate-600">
+        Found {packages.length} matching travel package
+        {packages.length !== 1 ? "s" : ""}.
+      </p>
+    </>
+  ) : (
+    <>
+      <span className="text-sm font-semibold uppercase tracking-widest text-emerald-600">
+        Curated Collection
+      </span>
 
-            <h2 className="mt-2 text-4xl font-bold text-slate-900">
-              Explore Our Packages
-            </h2>
+      <h2 className="mt-2 text-4xl font-bold text-slate-900">
+        Explore Our Packages
+      </h2>
 
-            <p className="mt-3 max-w-2xl text-slate-600">
-              Discover premium travel experiences
-              carefully crafted for unforgettable
-              adventures across the Himalayas.
-            </p>
-
-          </div>
+      <p className="mt-3 max-w-2xl text-slate-600">
+        Discover premium travel experiences
+        carefully crafted for unforgettable
+        adventures across the Himalayas.
+      </p>
+    </>
+  )}
+</div>
 
           <div className="rounded-2xl bg-slate-100 px-5 py-3">
 

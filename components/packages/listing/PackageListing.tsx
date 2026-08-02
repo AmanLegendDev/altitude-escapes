@@ -5,7 +5,7 @@ import PackageSearch from "./PackageSearch";
 import PackageFilters from "./PackageFilters";
 import PackageGrid from "./PackageGrid";
 import PackageCTA from "./PackageCTA";
-
+import { AnimatePresence, motion } from "framer-motion";
 import { Package } from "@/types/package";
 import type { Destination } from "@/lib/types/destination";
 import type { Category } from "@/lib/types/category";
@@ -41,9 +41,8 @@ const filteredPackages = useMemo(() => {
 
   return data;
 }, [packages, search]);
+const searching = search.trim().length > 0;
 
-console.log("Search:", search);
-console.log("Filtered:", filteredPackages.length);
 
 
 
@@ -57,14 +56,51 @@ console.log("Filtered:", filteredPackages.length);
   onSearch={setSearch}
 />
 
+     <AnimatePresence mode="wait">
+  {!searching && (
+    <motion.div
+      initial={{
+        opacity: 1,
+        height: "auto",
+      }}
+      animate={{
+        opacity: 1,
+        height: "auto",
+      }}
+      exit={{
+        opacity: 0,
+        height: 0,
+        marginTop: 0,
+        marginBottom: 0,
+      }}
+      transition={{
+        duration: 0.3,
+      }}
+      className="overflow-hidden"
+    >
       <PackageFilters
         categories={categories}
         destinations={destinations}
       />
+    </motion.div>
+  )}
+</AnimatePresence>
+   
 
-      <PackageGrid
+
+
+   <motion.div
+  layout
+  transition={{
+    duration: 0.35,
+  }}
+>
+<PackageGrid
   packages={filteredPackages}
+  searching={searching}
+  search={search}
 />
+</motion.div>
 
       <PackageCTA />
       <Footer/>

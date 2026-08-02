@@ -212,32 +212,7 @@ export default function PackageFilters({
 
             {/* Search */}
 
-            <div>
-
-              <label className="mb-2 block text-sm font-medium text-slate-700">
-                Search
-              </label>
-
-              <div className="relative">
-
-                <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-
-                <input
-                  type="text"
-                  value={search}
-                  onChange={(e) =>
-                    setSearch(
-                      e.target.value
-                    )
-                  }
-                  placeholder="Search..."
-                  className="w-full rounded-xl border border-slate-300 py-3 pl-10 pr-4 outline-none transition focus:border-emerald-500"
-                />
-
-              </div>
-
-            </div>
-
+           
             {/* Category */}
 
             <div>
