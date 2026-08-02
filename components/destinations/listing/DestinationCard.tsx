@@ -151,11 +151,6 @@ export default function DestinationCard({
 
           <div className="flex items-center gap-3 rounded-2xl bg-slate-50 p-4">
 
-            <div className="rounded-xl bg-emerald-100 p-2">
-
-              <Calendar className="h-5 w-5 text-emerald-600" />
-
-            </div>
 
             <div>
 
@@ -175,11 +170,7 @@ export default function DestinationCard({
 
           <div className="flex items-center gap-3 rounded-2xl bg-slate-50 p-4">
 
-            <div className="rounded-xl bg-sky-100 p-2">
-
-              <Mountain className="h-5 w-5 text-sky-600" />
-
-            </div>
+          
 
             <div>
 
