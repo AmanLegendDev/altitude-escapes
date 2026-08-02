@@ -46,7 +46,26 @@ export default function PackageDetail({
   gallery={pkg.gallery}
   packageName={pkg.name}
 />
+      <PackageItinerary
+        itinerary={pkg.itinerary}
+      />
 
+           <PackageIncludedExcluded
+        included={pkg.included}
+        excluded={pkg.excluded}
+      />
+
+
+      
+    <PackageInfo
+  destination={pkg.destination.name}
+  category={pkg.category.name}
+  duration={pkg.duration}
+  difficulty={pkg.difficulty}
+  groupSize={pkg.groupSize}
+  discountedPrice={pkg.discountedPrice}
+  childPolicy={pkg.childPolicy}
+/>
       <PackageOverview
         packageName={pkg.name}
         shortDescription={pkg.shortDescription}
@@ -57,28 +76,16 @@ export default function PackageDetail({
         discountedPrice={pkg.discountedPrice}
       />
 
+      
+
       <PackageHighlights
         highlights={pkg.highlights}
       />
 
-      <PackageIncludedExcluded
-        included={pkg.included}
-        excluded={pkg.excluded}
-      />
+ 
 
-      <PackageItinerary
-        itinerary={pkg.itinerary}
-      />
 
-    <PackageInfo
-  destination={pkg.destination.name}
-  category={pkg.category.name}
-  duration={pkg.duration}
-  difficulty={pkg.difficulty}
-  groupSize={pkg.groupSize}
-  discountedPrice={pkg.discountedPrice}
-  childPolicy={pkg.childPolicy}
-/>
+
 
       <PackageFAQ />
 
