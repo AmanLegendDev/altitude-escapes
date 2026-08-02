@@ -14,6 +14,7 @@ import ShareButtons from "@/components/blog/details/ShareButtons";
 import TableOfContents from "@/components/blog/details/TableOfContents";
 import AuthorCard from "@/components/blog/details/AuthorCard";
 import RelatedArticles from "@/components/blog/details/RelatedArticles";
+import { Footer } from "@/components/footer";
 
 interface Props {
   params: Promise<{
@@ -148,6 +149,7 @@ export default async function BlogDetailPage({
           JSON.stringify(relatedArticles)
         )}
       />
+      <Footer/>
     </>
   );
 }

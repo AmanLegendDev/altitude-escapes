@@ -23,6 +23,10 @@ interface BlogCardProps {
     category: {
       name: string;
     };
+
+    author: {
+  name: string;
+};
   };
 }
 

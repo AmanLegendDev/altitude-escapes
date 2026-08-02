@@ -126,7 +126,7 @@ export default function FeaturedArticle({
               <div className="mt-10">
 
                 <Link
-                  href={`/blog/${article.slug}`}
+                  href={`/blogs/${article.slug}`}
                   className="inline-flex items-center gap-3 rounded-xl bg-emerald-600 px-7 py-4 font-semibold text-white transition hover:bg-emerald-700"
                 >
 

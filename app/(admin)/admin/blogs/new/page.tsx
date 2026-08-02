@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import CloudinaryUploader from "@/components/admin/shared/CloudinaryUploader";
-
+import Editor from "@/components/editor/Editor";
 /* ------------------------------------------------------------------ */
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
@@ -126,9 +126,21 @@ export default function CreateBlogPage() {
     updateField("slug", slugify(value));
   };
 
-  const handleAutoReadTime = () => {
-    updateField("readTime", estimateReadTime(form.content));
-  };
+const handleAutoReadTime = () => {
+
+  const plainText =
+    form.content.replace(
+      /<[^>]*>/g,
+      " "
+    );
+
+  updateField(
+    "readTime",
+    estimateReadTime(
+      plainText
+    )
+  );
+};
 
   /* -------------------------- tags -------------------------- */
 
@@ -168,8 +180,15 @@ export default function CreateBlogPage() {
     if (!form.title.trim()) next.title = "Title zaroori hai";
     if (!form.slug.trim()) next.slug = "Slug zaroori hai";
     if (!form.excerpt.trim()) next.excerpt = "Excerpt zaroori hai";
-    if (!form.content.trim()) next.content = "Content khali nahi ho sakta";
-    if (!form.featuredImage.trim()) next.featuredImage = "Featured image lagana zaroori hai";
+const cleanContent =
+  form.content
+    .replace(/<[^>]*>/g, "")
+    .trim();
+
+if (!cleanContent) {
+  next.content =
+    "Content khali nahi ho sakta";
+}    if (!form.featuredImage.trim()) next.featuredImage = "Featured image lagana zaroori hai";
     if (!form.category) next.category = "Category select kar";
     if (!form.readTime || Number(form.readTime) < 1) next.readTime = "Read time kam se kam 1 min ho";
     return next;
@@ -332,15 +351,21 @@ export default function CreateBlogPage() {
             <label className="mb-2 block text-xs font-semibold uppercase tracking-wide text-[#64748B]">
               Content
             </label>
-            <textarea
-              value={form.content}
-              onChange={(e) => updateField("content", e.target.value)}
-              placeholder="Poori story yahan likh — Markdown support karta hai (##, **bold**, links, etc.)"
-              rows={16}
-              className={`w-full resize-y rounded-xl border bg-slate-50 p-4 font-mono text-sm leading-relaxed text-[#0F172A] outline-none focus:bg-white focus:ring-2 focus:ring-[#38BDF8]/40 ${
-                errors.content ? "border-red-400" : "border-slate-200"
-              }`}
-            />
+            <Editor
+  value={form.content}
+  onChange={(html) =>
+    updateField(
+      "content",
+      html
+    )
+  }
+/>
+
+{errors.content && (
+  <p className="mt-2 text-xs text-red-500">
+    {errors.content}
+  </p>
+)}
             {errors.content && <p className="mt-1 text-xs text-red-500">{errors.content}</p>}
           </div>
 
